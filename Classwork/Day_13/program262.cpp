@@ -1,9 +1,10 @@
 #include<iostream>
 using namespace std;
+template<class T>
 
-int Add(int No1,int No2)
+T Add(T No1,T No2)
     {
-        int Ans;
+        T Ans;
         Ans = No1 + No2;
         return Ans;
     }
