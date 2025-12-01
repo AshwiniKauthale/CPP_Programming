@@ -4,9 +4,7 @@ using namespace std;
 void Display()
 {
     cout<<"Jay Ganesh...\n";
-    cout<<"Jay Ganesh...\n";
-    cout<<"Jay Ganesh...\n";
-    cout<<"Jay Ganesh...\n";
+    Display();
 }
 
 int main()
