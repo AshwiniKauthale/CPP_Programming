@@ -3,27 +3,25 @@ using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
-//    Function Name :    Search
-//    Input :            Array , size of array and one value of generic type (T,int, T)
-//    Output :           boolean
-//    Description :      used to find out given element is present or not  using template
+//    Function Name :    Reverse
+//    Input :            Array , size of array (T, int)
+//    Output :           Reverse Array
+//    Description :      used to Reverse the array
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////
 
 template<class T>
-bool Search(T Arr[], int Size,T no)
+void Reverse(T Arr[], int iSize)
 {
     int iCnt = 0;
-    for(iCnt = 0; iCnt < Size; iCnt++)
+
+    cout<<"Reverse array is : ";
+    for(iCnt = iSize -1; iCnt >= 0; iCnt--)
     {
-        if(Arr[iCnt] == no)
-        {
-            return true;
-        }
+        cout<<Arr[iCnt]<<" ";
     }
-    return false;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -31,7 +29,7 @@ bool Search(T Arr[], int Size,T no)
 //    Function Name :    MainX
 //    Input :            Values entered by user (generic type)
 //    Output :           Nothing
-//    Description :      Accepts N numbers values from user and calls Search() function
+//    Description :      Accepts N numbers values from user and calls Reverse() function
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
@@ -40,45 +38,33 @@ bool Search(T Arr[], int Size,T no)
 template<class T>
 void MainX()
 {
-    int Value1;
-    T Value2;
-    bool Ret = false;
+    int Value1 = 0;
     int iCnt = 0;
 
-    cout<<"Enter how many element you want to insert :";
+    cout<<"How many elements you want to insert : \n";
     cin>>Value1;
 
     T *Arr = new T[Value1];
 
-    for(iCnt = 0; iCnt < Value1; iCnt++)
+    cout<<"Enter elements :\n";
+
+    for(iCnt = 0;iCnt < Value1; iCnt++)
     {
         cin>>Arr[iCnt];
     }
 
-    cout<<"Enter element you want to search\n";
-    cin>>Value2;
-
-    Ret = Search(Arr,Value1,Value2);
-
-    if(Ret == true)
-    {
-        cout<<"Element is found\n";
-    }
-    else
-    {
-        cout<<"element is not found\n";
-    }
+    Reverse(Arr,Value1);
 
     delete[] Arr;
 }
 
-///////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
 //    Entry Point function
 ///////////////////////////////////////////////////////////////////////////////////
 
 int main()
 {
-    MainX <float>();
+    MainX<char>();
 
     return 0;
 }

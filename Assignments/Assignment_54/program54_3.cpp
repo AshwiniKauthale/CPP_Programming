@@ -3,35 +3,36 @@ using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
-//    Function Name :    Search
-//    Input :            Array , size of array and one value of generic type (T,int, T)
-//    Output :           boolean
-//    Description :      used to find out given element is present or not  using template
+//    Function Name :    SumOdd
+//    Input :            Array , size of array (T, int)
+//    Output :           Addition of odd value(T)
+//    Description :      used to Summation of odd values  using template
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////
 
 template<class T>
-bool Search(T Arr[], int Size,T no)
+T SumOdd(T Arr[], int Size)
 {
     int iCnt = 0;
+    T Sum = 0;
     for(iCnt = 0; iCnt < Size; iCnt++)
     {
-        if(Arr[iCnt] == no)
+        if((Arr[iCnt] % 2) != 0)
         {
-            return true;
+            Sum = Sum + Arr[iCnt];
         }
     }
-    return false;
+    return Sum;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //    Function Name :    MainX
 //    Input :            Values entered by user (generic type)
-//    Output :           Nothing
-//    Description :      Accepts N numbers values from user and calls Search() function
+//    Output :           Sum of odd numbers
+//    Description :      Accepts N numbers values from user and calls SumOdd() function
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
@@ -41,9 +42,8 @@ template<class T>
 void MainX()
 {
     int Value1;
-    T Value2;
-    bool Ret = false;
     int iCnt = 0;
+    T Ret;
 
     cout<<"Enter how many element you want to insert :";
     cin>>Value1;
@@ -55,19 +55,9 @@ void MainX()
         cin>>Arr[iCnt];
     }
 
-    cout<<"Enter element you want to search\n";
-    cin>>Value2;
+    Ret = SumOdd(Arr,Value1);
 
-    Ret = Search(Arr,Value1,Value2);
-
-    if(Ret == true)
-    {
-        cout<<"Element is found\n";
-    }
-    else
-    {
-        cout<<"element is not found\n";
-    }
+    cout<<"Sum of odd number is :"<<Ret;
 
     delete[] Arr;
 }
@@ -78,7 +68,7 @@ void MainX()
 
 int main()
 {
-    MainX <float>();
+    MainX <int>();
 
     return 0;
 }

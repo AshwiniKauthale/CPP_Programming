@@ -3,35 +3,37 @@ using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
-//    Function Name :    Search
-//    Input :            Array , size of array and one value of generic type (T,int, T)
-//    Output :           boolean
-//    Description :      used to find out given element is present or not  using template
+//    Function Name :    Min
+//    Input :            Array , size of array (T, int)
+//    Output :           Return minimum value (T)
+//    Description :      used to find out minimum element
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////
 
 template<class T>
-bool Search(T Arr[], int Size,T no)
+T Min(T Arr[], int iSize)
 {
     int iCnt = 0;
-    for(iCnt = 0; iCnt < Size; iCnt++)
+    T min = Arr[iCnt];
+
+    for(iCnt = iSize -1; iCnt >= 0; iCnt--)
     {
-        if(Arr[iCnt] == no)
+        if(Arr[iCnt] < min)
         {
-            return true;
+            min = Arr[iCnt];
         }
     }
-    return false;
+    return min;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //    Function Name :    MainX
 //    Input :            Values entered by user (generic type)
-//    Output :           Nothing
-//    Description :      Accepts N numbers values from user and calls Search() function
+//    Output :           Minimum element
+//    Description :      Accepts N numbers values from user and calls Min() function
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
@@ -40,45 +42,36 @@ bool Search(T Arr[], int Size,T no)
 template<class T>
 void MainX()
 {
-    int Value1;
-    T Value2;
-    bool Ret = false;
+    int Value1 = 0;
     int iCnt = 0;
+    T Ret;
 
-    cout<<"Enter how many element you want to insert :";
+    cout<<"How many elements you want to insert : \n";
     cin>>Value1;
 
     T *Arr = new T[Value1];
 
-    for(iCnt = 0; iCnt < Value1; iCnt++)
+    cout<<"Enter elements :\n";
+
+    for(iCnt = 0;iCnt < Value1; iCnt++)
     {
         cin>>Arr[iCnt];
     }
 
-    cout<<"Enter element you want to search\n";
-    cin>>Value2;
+    Ret = Min(Arr,Value1);
 
-    Ret = Search(Arr,Value1,Value2);
-
-    if(Ret == true)
-    {
-        cout<<"Element is found\n";
-    }
-    else
-    {
-        cout<<"element is not found\n";
-    }
+    cout<<"Minimum element is : "<<Ret;
 
     delete[] Arr;
 }
 
-///////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
 //    Entry Point function
 ///////////////////////////////////////////////////////////////////////////////////
 
 int main()
 {
-    MainX <float>();
+    MainX<double>();
 
     return 0;
 }
