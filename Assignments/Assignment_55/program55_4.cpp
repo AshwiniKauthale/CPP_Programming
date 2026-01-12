@@ -3,29 +3,31 @@ using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
-//    Function Name :    Add
+//    Function Name :    Swap
 //    Input :            Two values of generic type (T, T)
-//    Output :           Addition of two values (T)
-//    Description :      Performs addition of two values using template
+//    Output :           Swap two values (T)
+//    Description :      Performs Swapping of two values using template
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////
 
 template<class T>
-T Add(T no1, T no2)
+void Swap(T no1, T no2)
 {
-    T sum;
-    sum = no1 + no2;
-    return sum;
+    T temp = no1;
+    no1 = no2;
+    no2 = temp;
+
+    cout<<no1<<" "<<no2<<"\n";
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //    Function Name :    MainX
 //    Input :            Values entered by user (generic type)
-//    Output :           Displays addition of two values
-//    Description :      Accepts two values from user and calls Add() function
+//    Output :           Nothing
+//    Description :      Accepts two values from user and calls Swap() function
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
@@ -34,7 +36,6 @@ T Add(T no1, T no2)
 template<class T>
 void MainX()
 {
-    T Ret;
     T Value1,Value2;
 
     cout<<"Enter First element : "<<"\n";
@@ -43,9 +44,7 @@ void MainX()
     cout<<"Enter Second element : "<<"\n";
     cin>>Value2;
 
-    Ret = Add(Value1,Value2);
-
-    cout<<"Addition is :"<<Ret<<"\n";
+    Swap(Value1,Value2);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

@@ -3,20 +3,20 @@ using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
-//    Function Name :    Add
+//    Function Name :    Sub
 //    Input :            Two values of generic type (T, T)
-//    Output :           Addition of two values (T)
-//    Description :      Performs addition of two values using template
+//    Output :           Substraction of two values (T)
+//    Description :      Performs Substraction of two values using template
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////
 
 template<class T>
-T Add(T no1, T no2)
+T Sub(T no1, T no2)
 {
     T sum;
-    sum = no1 + no2;
+    sum = no1 - no2;
     return sum;
 }
 
@@ -24,8 +24,8 @@ T Add(T no1, T no2)
 //
 //    Function Name :    MainX
 //    Input :            Values entered by user (generic type)
-//    Output :           Displays addition of two values
-//    Description :      Accepts two values from user and calls Add() function
+//    Output :           Displays difference of two values
+//    Description :      Accepts two values from user and calls Sub() function
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
@@ -43,9 +43,9 @@ void MainX()
     cout<<"Enter Second element : "<<"\n";
     cin>>Value2;
 
-    Ret = Add(Value1,Value2);
+    Ret = Sub(Value1,Value2);
 
-    cout<<"Addition is :"<<Ret<<"\n";
+    cout<<"Difference is :"<<Ret<<"\n";
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
