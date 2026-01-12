@@ -3,29 +3,38 @@ using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
-//    Function Name :    Multiply
-//    Input :            Two values of generic type (T, T)
-//    Output :           Product of two values (T)
-//    Description :      Performs Multiplicationn of two values using template
+//    Function Name :    Max
+//    Input :            Three values of generic type (T, T)
+//    Output :           Max Value
+//    Description :      Used to find out maximum from three values using template
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////
 
 template<class T>
-T Multiply(T no1, T no2)
+T Max(T no1, T no2,T no3)
 {
-    T Ans;
-    Ans = no1 * no2;
-    return Ans;
+    if((no1 > no2) && (no1 > no3))
+    {
+        return no1;
+    }
+    else if((no2 > no1) && (no2 > no3))
+    {
+        return no2;
+    }
+    else
+    {
+        return no3;
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //    Function Name :    MainX
 //    Input :            Values entered by user (generic type)
-//    Output :           Displays Multiplication of two values
-//    Description :      Accepts two values from user and calls Multiply() function
+//    Output :           Displays Maximum of three values
+//    Description :      Accepts three values from user and calls Max() function
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
@@ -35,18 +44,22 @@ template<class T>
 void MainX()
 {
     T Ret;
-    T Value1,Value2;
-
-    cout<<"Enter First element : "<<"\n";
+    T Value1 = 0,Value2 = 0,Value3 = 0;
+    
+    cout<<"Enter first number : \n";
     cin>>Value1;
 
-    cout<<"Enter Second element : "<<"\n";
+    cout<<"Enter Second number : \n";
     cin>>Value2;
 
-    Ret = Multiply(Value1,Value2);
+    cout<<"Enter third number : \n";
+    cin>>Value3;
 
-    cout<<"Multiplication is :"<<Ret<<"\n";
+    Ret = Max(Value1,Value2,Value3);
+
+    cout<<"Maximum is : "<<Ret;
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////
 //    Entry Point function
@@ -54,8 +67,6 @@ void MainX()
 
 int main()
 {
-    MainX<int>();
-    MainX<float>();
-
+    MainX<double>();
     return 0;
 }

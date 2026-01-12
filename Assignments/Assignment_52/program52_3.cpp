@@ -3,29 +3,36 @@ using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
-//    Function Name :    Multiply
-//    Input :            Two values of generic type (T, T)
-//    Output :           Product of two values (T)
-//    Description :      Performs Multiplicationn of two values using template
+//    Function Name :    AddN
+//    Input :            Array , size of array (T,int)
+//    Output :           Addition
+//    Description :      Used to add element from array using template
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////
 
 template<class T>
-T Multiply(T no1, T no2)
+T AddN(T Arr[], int iSize)
 {
-    T Ans;
-    Ans = no1 * no2;
-    return Ans;
+    T Sum = 0;
+    int iCnt = 0;
+
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        Sum = Sum + Arr[iCnt];
+    }
+
+    return Sum;
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //    Function Name :    MainX
 //    Input :            Values entered by user (generic type)
-//    Output :           Displays Multiplication of two values
-//    Description :      Accepts two values from user and calls Multiply() function
+//    Output :           Displays Addition of all elements
+//    Description :      Accepts three values from user and calls AddN() function
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
@@ -34,18 +41,27 @@ T Multiply(T no1, T no2)
 template<class T>
 void MainX()
 {
-    T Ret;
-    T Value1,Value2;
+    int Value = 0;
+    T Ret = 0;
+    int iCnt = 0;
 
-    cout<<"Enter First element : "<<"\n";
-    cin>>Value1;
+    cout<<"How many elements you want to insert : \n";
+    cin>>Value;
 
-    cout<<"Enter Second element : "<<"\n";
-    cin>>Value2;
+    T *Arr = new T[Value];
 
-    Ret = Multiply(Value1,Value2);
+    cout<<"Enter elements :\n";
 
-    cout<<"Multiplication is :"<<Ret<<"\n";
+    for(iCnt = 0;iCnt < Value; iCnt++)
+    {
+        cin>>Arr[iCnt];
+    }
+
+    Ret = AddN(Arr,Value);
+
+    cout<<"Summation is : "<<Ret;
+
+    delete[] Arr;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -55,7 +71,5 @@ void MainX()
 int main()
 {
     MainX<int>();
-    MainX<float>();
-
     return 0;
 }
