@@ -3,41 +3,37 @@ using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
-//    Function Name :    CopyArr
+//    Function Name :    CheckSorted
 //    Input :            Array , size of array (T, int)
-//    Output :           Return new array (T)
-//    Description :      used to copy element of one array into another array
+//    Output :           Boolean value
+//    Description :      used to check array is sorted or not
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////
 
 template<class T>
-void CopyArray(T Arr[], int Size)
+bool CheckSorted(T Arr[], int iSize)
 {
-    int iCnt = 0;
+    T min = Arr[0];
 
-    T *Brr = new T[Size];
-
-    for(iCnt = 0; iCnt < Size; iCnt++)
+    for(int iCnt = 1; iCnt < iSize; iCnt++)
     {
-        Brr[iCnt] = Arr[iCnt];
+        if(Arr[iCnt] < min)
+        {
+            return false;
+        }
+        min = Arr[iCnt];
     }
-
-    for(iCnt = 0; iCnt < Size; iCnt++)
-    {
-        cout<<Brr[iCnt]<<" ";
-    }
-
-    delete[] Brr;
+    return true;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //    Function Name :    MainX
 //    Input :            Values entered by user (generic type)
-//    Output :           Nothing
-//    Description :      Accepts N numbers values from user and calls CopyArray() function
+//    Output :           Soted or not
+//    Description :      Accepts N numbers values from user and calls CheckSorted() function
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
@@ -46,24 +42,28 @@ void CopyArray(T Arr[], int Size)
 template<class T>
 void MainX()
 {
-    int Value1 = 0;
-    int iCnt = 0;
-    T Ret;
+    int Value = 0;
+    cout << "How many elements you want to insert :\n";
+    cin >> Value;
 
-    cout<<"How many elements you want to insert : \n";
-    cin>>Value1;
+    T *Arr = new T[Value];
 
-    T *Arr = new T[Value1];
-
-    cout<<"Enter elements :\n";
-
-    for(iCnt = 0;iCnt < Value1; iCnt++)
+    cout << "Enter elements :\n";
+    for(int iCnt = 0; iCnt < Value; iCnt++)
     {
-        cin>>Arr[iCnt];
+        cin >> Arr[iCnt];
     }
 
-    CopyArray(Arr,Value1);
+    bool bRet = CheckSorted(Arr, Value);
 
+    if(bRet)
+    {
+        cout << "Array is sorted\n";
+    }
+    else
+    {
+        cout << "Array is not sorted\n";
+    }
     delete[] Arr;
 }
 

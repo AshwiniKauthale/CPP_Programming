@@ -3,33 +3,31 @@ using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
-//    Function Name :    CopyArr
-//    Input :            Array , size of array (T, int)
-//    Output :           Return new array (T)
-//    Description :      used to copy element of one array into another array
+//    Function Name :    Replace
+//    Input :            Array , size of array,old value,new value (T, int ,T,T)
+//    Output :           Array with replace value
+//    Description :      used to replace new value in place of old value
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////
 
 template<class T>
-void CopyArray(T Arr[], int Size)
+void Replace(T Arr[], int iSize,T oldVal, T newVal)
 {
     int iCnt = 0;
-
-    T *Brr = new T[Size];
-
-    for(iCnt = 0; iCnt < Size; iCnt++)
+    for(iCnt = 0; iCnt < iSize; iCnt++)
     {
-        Brr[iCnt] = Arr[iCnt];
+        if(Arr[iCnt] == oldVal)
+        {
+            Arr[iCnt] = newVal;
+        }
     }
 
-    for(iCnt = 0; iCnt < Size; iCnt++)
+    for(iCnt = 0; iCnt < iSize; iCnt++)
     {
-        cout<<Brr[iCnt]<<" ";
+        cout<<Arr[iCnt]<<" ";
     }
-
-    delete[] Brr;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -37,7 +35,7 @@ void CopyArray(T Arr[], int Size)
 //    Function Name :    MainX
 //    Input :            Values entered by user (generic type)
 //    Output :           Nothing
-//    Description :      Accepts N numbers values from user and calls CopyArray() function
+//    Description :      Accepts N numbers values from user and calls Replace() function
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
@@ -46,23 +44,26 @@ void CopyArray(T Arr[], int Size)
 template<class T>
 void MainX()
 {
-    int Value1 = 0;
-    int iCnt = 0;
-    T Ret;
+    int Value = 0;
+    T Ret,oldVal,newVal;
+    cout << "How many elements you want to insert :\n";
+    cin >> Value;
 
-    cout<<"How many elements you want to insert : \n";
-    cin>>Value1;
+    T *Arr = new T[Value];
 
-    T *Arr = new T[Value1];
-
-    cout<<"Enter elements :\n";
-
-    for(iCnt = 0;iCnt < Value1; iCnt++)
+    cout << "Enter elements :\n";
+    for(int iCnt = 0; iCnt < Value; iCnt++)
     {
-        cin>>Arr[iCnt];
+        cin >> Arr[iCnt];
     }
 
-    CopyArray(Arr,Value1);
+    cout<<"Enter old value which you want to replace :";
+    cin>>oldVal;
+
+    cout<<"Enter new value :";
+    cin>>newVal;
+
+    Replace(Arr, Value,oldVal,newVal);
 
     delete[] Arr;
 }
@@ -73,7 +74,7 @@ void MainX()
 
 int main()
 {
-    MainX<int>();
+    MainX<char>();
 
     return 0;
 }
