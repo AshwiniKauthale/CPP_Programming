@@ -3,32 +3,33 @@ using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
-//    Function Name :    Display
-//    Input :            Two values of generic type (T, int)
-//    Output :           display value no of times
-//    Description :      display element given number of times using template
+//    Function Name :    Reverse
+//    Input :            Array , size of array (T, int)
+//    Output :           Display array in reverse order
+//    Description :      used to display array in reverse order using template
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////
 
 template<class T>
-void Display(T Value,int Size)
+void Reverse(T Arr[],int iSize)
 {
     int iCnt = 0;
-    for(iCnt = 1; iCnt <= Size; iCnt++)
+
+    for(iCnt = iSize-1; iCnt >= 0;iCnt--)
     {
-        cout<<Value<<" ";
+        cout<<Arr[iCnt]<<" ";
     }
-    cout<<"\n";
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //    Function Name :    MainX
 //    Input :            Values entered by user (generic type)
-//    Output :           Displays Maximum of four values
-//    Description :      Accepts four values from user and calls Display() function
+//    Output :           Nothing
+//    Description :      Accepts N values from user and calls Reverse() function
 //    Author :           Ashwini Vishnu Kauthale
 //    Date :             11/01/2026
 //
@@ -37,16 +38,24 @@ void Display(T Value,int Size)
 template<class T>
 void MainX()
 {
-    T iValue1;
-    int iValue2 = 0;
+    int iCnt = 0;
+    int Value1 = 0;
 
-    cout<<"Enter number of element that you want to display  :\n";
-    cin>>iValue1;
+    cout<<"Enter number of element that you want to insert  :\n";
+    cin>>Value1;
 
-    cout<<"Enter the value that times you want to display :\n";
-    cin>>iValue2;
+    T *Arr = new T[Value1];
 
-    Display(iValue1,iValue2);
+    cout<<"Enter the values :\n";
+
+    for(iCnt = 0; iCnt < Value1;iCnt++)
+    {
+        cin>>Arr[iCnt];
+    }
+
+    Reverse(Arr,Value1);
+
+    delete[] Arr;
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -57,7 +66,7 @@ void MainX()
 
 int main()
 {
-    MainX<char>();
+    MainX<int>();
 
     return 0;
 }
